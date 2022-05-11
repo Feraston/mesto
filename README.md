@@ -4,8 +4,6 @@
 
 На сайте представлены фотографии замечательных и фантастических мест, которые достойны вашего внимания.
 
-<br><br>
-
 Вот что вам удасться изучить:
 * **Горная дорога**
 * **Горный мир**
@@ -41,8 +39,8 @@
 
 
 Статистика данного репозитория:
-https://img.shields.io/github/commit-activity/m/Feraston/Mesto?style=plastic
-https://img.shields.io/website?style=plastic&url=https%3A%2F%2Fferaston.github.io%2Fmesto%2F
+![Текст](https://img.shields.io/github/commit-activity/m/Feraston/Mesto?style=plastic)
+![Текст](https://img.shields.io/website?style=plastic&url=https%3A%2F%2Fferaston.github.io%2Fmesto%2F)
 
 
 <h2 align="center">А пока Проектная работа находиться на проверке, предлагаю представить, как мы движемся на встречу к нашей мечте</h2>
