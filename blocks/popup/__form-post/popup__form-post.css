@@ -1,0 +1,22 @@
+.popup__form-post {
+  margin: 30px auto 0;
+  min-width: 358px;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  font-size: 14px;
+  line-height: 17px;
+  padding: 0 0 13px;
+  transition: all .5s ease;
+}
+
+.popup__form-post:focus {
+  outline: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .8);
+}
+
+@media screen and (max-width: 450px) {
+  .popup__form-post {
+    min-width: 238px;
+  }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="pages/index.css" type="text/css">
+  <title>Mesto Russia</title>
+</head>
+<body class="page">
+    <header class="header">
+      <img src="images/logo.svg" alt="Лого" class="logo">
+    </header>
+  <main>
+      <section class="profile">
+        <div class="profile__content">
+            <img src="images/avatar.jpg" alt="Аватар" class="profile__avatar">
+          <div class="profile__info">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__edit"><img src="images/edit.png" alt="Редактирование" class="profile__edit-img"></button>
+            <p class="profile__post">Исследователь океана</p>
+          </div>
+        </div>
+        <button class="profile__add"><img src="images/add.svg" alt="Добавить" class="profile__add-file"></button>
+      </section>
+      <section class="content">
+        <div class="content__card">
+          <img src="images/foto_one.jpg" alt="Горная дорога" class="content__scenery">
+          <div class="content__description">
+            <h2 class="content__place">Горная дорога</h2>
+            <img src="images/like.svg" alt="Лайк" class="content__like">
+          </div>
+        </div>
+        <div class="content__card">
+          <img src="images/foto_two.jpg" alt="Горный мир" class="content__scenery">
+          <div class="content__description">
+            <h2 class="content__place">Горный мир</h2>
+            <img src="images/like.svg" alt="Лайк" class="content__like">
+          </div>
+        </div>
+        <div class="content__card">
+          <img src="images/foto_three.jpg" alt="Дом на краю света" class="content__scenery">
+          <div class="content__description">
+            <h2 class="content__place">Дом на краю света</h2>
+            <img src="images/like.svg" alt="Лайк" class="content__like">
+          </div>
+        </div>
+        <div class="content__card">
+          <img src="images/foto_four.jpg" alt="Зимний лес" class="content__scenery">
+          <div class="content__description">
+            <h2 class="content__place">Зимний лес</h2>
+            <img src="images/like.svg" alt="Лайк" class="content__like">
+          </div>
+        </div>
+        <div class="content__card">
+          <img src="images/foto_five.jpg" alt="Тропа к вечности" class="content__scenery">
+          <div class="content__description">
+            <h2 class="content__place">Тропа к вечности</h2>
+            <img src="images/like.svg" alt="Лайк" class="content__like">
+          </div>
+        </div>
+        <div class="content__card">
+          <img src="images/foto_six.jpg" alt="Место силы" class="content__scenery">
+          <div class="content__description">
+            <h2 class="content__place">Место силы</h2>
+            <img src="images/like.svg" alt="Лайк" class="content__like">
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022. Mesto russia - Прилюк Роман</p>
+    </footer>
+    <section class="popup">
+      <div class="popup__container">
+        <form class="popup__form-edit">
+        <img src="images/Close.svg" alt="Закрыть" class="popup__close">
+        <fieldset class="popup__label">
+          <legend class="popup__form">Редактировать профиль</legend>
+          <input type="text" class="popup__form-name" name="name" placeholder="Имя" value="Жак-Ив Кусто" required>
+          <input type="text" class="popup__form-post" name="post" placeholder="О себе" value="Исследователь океана" required>
+          <input type="submit" class="popup__form-button">
+        </fieldset>
+        </form>
+      </div>
+    </section>
+    <script src="js/script.js"></script>
+</body>
+</html>
