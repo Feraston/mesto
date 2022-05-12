@@ -1,8 +1,8 @@
 /* Параметры ко всей странице */
 
 @import url(../vendor/normalize.css);
-@import url(../blocks/page/page.css);
 @import url(../fonts/fonts.css);
+@import url(../blocks/page/page.css);
 
 /* Header */
 
@@ -29,6 +29,7 @@
 @import url(../blocks/content/__scenery/content__scenery.css);
 @import url(../blocks/content/__description/content__description.css);
 @import url(../blocks/content/__place/content__place.css);
+@import url(../blocks/content/__button-like/content__button-like.css);
 @import url(../blocks/content/__like/content__like.css);
 @import url(../blocks/content/__like/_active/content__like_active.css);
 
@@ -40,10 +41,10 @@
 /* Pop up - edit profile */
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
-@import url(../blocks/popup/__open/popup__open.css);
+@import url(../blocks/popup/_open/popup_open.css);
+@import url(../blocks/popup/__button-close/popup__button-close.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__label/popup__label.css);
 @import url(../blocks/popup/__form/popup__form.css);
-@import url(../blocks/popup/__form-name/popup__form-name.css);
-@import url(../blocks/popup/__form-post/popup__form-post.css);
+@import url(../blocks/popup/__form-input/popup__form-input.css);
 @import url(../blocks/popup/__form-button/popup__form-button.css);

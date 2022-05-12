@@ -1,10 +1,5 @@
 .content__like {
   max-width: 22px;
   max-height: 19px;
-  cursor: pointer;
-  transition: all .5s ease;
 }
 
-.content__like:hover {
-  opacity: .5;
-}

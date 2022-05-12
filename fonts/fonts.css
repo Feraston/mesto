@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Inter-Black';
+    font-family: 'Inter';
     src: url(Inter-Black.woff2) format('woff2'),
         url(Inter-Black.woff) format('woff'),
         url(Inter-Black.ttf) format('truetype');
@@ -17,7 +17,7 @@
   }
 
   @font-face {
-    font-family: 'Inter-Medium';
+    font-family: 'Inter';
     src: url(Inter-Medium.woff2) format('woff2'),
         url(Inter-Medium.woff) format('woff'),
         url(Inter-Medium.ttf) format('truetype');

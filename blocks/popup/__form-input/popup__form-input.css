@@ -1,5 +1,4 @@
-.popup__form-post {
-  margin: 30px auto 0;
+.popup__form-input {
   min-width: 358px;
   box-sizing: border-box;
   border: 0;
@@ -10,13 +9,21 @@
   transition: all .5s ease;
 }
 
-.popup__form-post:focus {
+.popup__form-input:focus {
   outline: none;
   border-bottom: 1px solid rgba(0, 0, 0, .8);
 }
 
+.popup__form-input:nth-of-type(1) {
+  margin: 54px auto 30px;
+}
+
+.popup__form-input:nth-of-type(2) {
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 450px) {
-  .popup__form-post {
+  .popup__form-input {
     min-width: 238px;
   }
 }
