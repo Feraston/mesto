@@ -8,9 +8,13 @@ let nameInput = document.querySelector('.popup__form-input:nth-of-type(1)');
 let jobInput = document.querySelector('.popup__form-input:nth-of-type(2)');
 
 function togglePopup() {
-  popup.classList.toggle('popup_open');
-  nameInput.value = nameAvtor.textContent;
-  jobInput.value = postAvtor.textContent;
+  if (popup.classList.contains('popup_open')){
+      popup.classList.toggle('popup_open');
+  } else {
+    popup.classList.toggle('popup_open');
+    nameInput.value = nameAvtor.textContent;
+    jobInput.value = postAvtor.textContent;
+  };
 };
 
 function formSubmitHandler (evt) {
@@ -27,4 +31,4 @@ popup.addEventListener('click', function(ev) {
     popup.classList.toggle('popup_open');
   }
 });
-formElement.addEventListener('submit', formSubmitHandler); 
+formElement.addEventListener('submit', formSubmitHandler);
