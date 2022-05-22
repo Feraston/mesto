@@ -45,6 +45,19 @@
         </form>
       </div>
     </section>
+    <section class="popup" aria-label="Добавить место">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"><img src="images/Close.svg" alt="Закрыть" class="popup__close"></button>
+        <form class="popup__form-add" name="add-mesto">
+          <fieldset class="popup__label">
+          <legend class="popup__form">Новое место</legend>
+          <input type="text" class="popup__form-input" name="name-mesto" placeholder="Название" value="" required>
+          <input type="url" class="popup__form-input" name="link-mesto" placeholder="Ссылка на картинку" value="" required>
+          <input type="submit" class="popup__form-button" value="Создать">
+        </fieldset>
+        </form>
+      </div>
+    </section>
     <template id="template__cards">
       <li class="content__card">
         <img src="" alt="" class="content__scenery">
