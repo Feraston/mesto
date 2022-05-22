@@ -23,50 +23,11 @@
         </div>
         <button class="profile__add" type="button"><img src="images/add.svg" alt="Добавить" class="profile__add-file"></button>
       </section>
-      <section class="content">
-        <div class="content__card">
-          <img src="images/foto_one.jpg" alt="Горная дорога" class="content__scenery">
-          <div class="content__description">
-            <h2 class="content__place">Горная дорога</h2>
-            <button class="content__button-like" type="button"><img src="images/like.svg" alt="Лайк" class="content__like"></button>
-          </div>
-        </div>
-        <div class="content__card">
-          <img src="images/foto_two.jpg" alt="Горный мир" class="content__scenery">
-          <div class="content__description">
-            <h2 class="content__place">Горный мир</h2>
-            <button class="content__button-like" type="button"><img src="images/like.svg" alt="Лайк" class="content__like"></button>
-          </div>
-        </div>
-        <div class="content__card">
-          <img src="images/foto_three.jpg" alt="Дом на краю света" class="content__scenery">
-          <div class="content__description">
-            <h2 class="content__place">Дом на краю света</h2>
-            <button class="content__button-like" type="button"><img src="images/like.svg" alt="Лайк" class="content__like"></button>
-          </div>
-        </div>
-        <div class="content__card">
-          <img src="images/foto_four.jpg" alt="Зимний лес" class="content__scenery">
-          <div class="content__description">
-            <h2 class="content__place">Зимний лес</h2>
-            <button class="content__button-like" type="button"><img src="images/like.svg" alt="Лайк" class="content__like"></button>
-          </div>
-        </div>
-        <div class="content__card">
-          <img src="images/foto_five.jpg" alt="Тропа к вечности" class="content__scenery">
-          <div class="content__description">
-            <h2 class="content__place">Тропа к вечности</h2>
-            <button class="content__button-like" type="button"><img src="images/like.svg" alt="Лайк" class="content__like"></button>
-          </div>
-        </div>
-        <div class="content__card">
-          <img src="images/foto_six.jpg" alt="Место силы" class="content__scenery">
-          <div class="content__description">
-            <h2 class="content__place">Место силы</h2>
-            <button class="content__button-like" type="button"><img src="images/like.svg" alt="Лайк" class="content__like"></button>
-          </div>
-        </div>
+      <section class="content" aria-label="Контент пользователя">
+
+        </ul>
       </section>
+
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022. Mesto russia - Прилюк Роман</p>
@@ -84,6 +45,16 @@
         </form>
       </div>
     </section>
+    <template id="template__cards">
+      <li class="content__card">
+        <img src="" alt="" class="content__scenery">
+        <div class="content__description">
+          <h2 class="content__place"></h2>
+          <button class="content__button-like" type="button"><img src="images/like.svg" alt="Лайк" class="content__like"></button>              
+        </div>
+        <button class="content__button-delete" type="button"><img src="images/delete.svg" alt="Удалить" class="content__delete"></button>
+      </li>
+    </template> 
     <script src="js/script.js"></script>
 </body>
 </html>

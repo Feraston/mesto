@@ -25,6 +25,7 @@
 /* Content */
 
 @import url(../blocks/content/content.css);
+@import url(../blocks/content/__cards/content__cards.css);
 @import url(../blocks/content/__card/content__card.css);
 @import url(../blocks/content/__scenery/content__scenery.css);
 @import url(../blocks/content/__description/content__description.css);
@@ -32,6 +33,8 @@
 @import url(../blocks/content/__button-like/content__button-like.css);
 @import url(../blocks/content/__like/content__like.css);
 @import url(../blocks/content/__like/_active/content__like_active.css);
+@import url(../blocks/content/__delete/content__delete.css);
+@import url(../blocks/content/__button-delete/content__button-delete.css);
 
 /* Footer */
 
