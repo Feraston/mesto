@@ -12,7 +12,7 @@ let jobInput = document.querySelectorAll('.popup__form-input:nth-of-type(2)');
 const contentCards = document.querySelector('.content__cards');
 const contentTemplate = document.querySelector('#template__contents').content;
 const cardTemplate = contentTemplate.querySelector('.content__card').cloneNode(true);
-cardTemplate.querySelector('.content__scenery').src='./images/foto_three.jpg';
+cardTemplate.querySelector('.content__scenery').src='./images/foto_one.jpg';
 cardTemplate.querySelector('.content__scenery').alt='Новинка';
 cardTemplate.querySelector('.content__place').textContent = 'Дюк Корморант';
 
