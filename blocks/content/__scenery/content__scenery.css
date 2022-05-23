@@ -1,4 +1,6 @@
 .content__scenery {
   width: 100%;
-  pointer-events: none;
+  min-height: 282px;
+  object-fit: cover;
+  cursor: url(../../../images/cursor.png), auto;
 }
