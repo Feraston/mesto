@@ -5,17 +5,14 @@ const closePopup = document.querySelectorAll('.popup__close');
 const nameAvtor = document.querySelector('.profile__name');
 const postAvtor = document.querySelector('.profile__post');
 let formElement = document.querySelector('.popup__form-edit');
-<<<<<<< HEAD
 let nameInput = document.querySelectorAll('.popup__form-input:nth-of-type(1)');
 let jobInput = document.querySelectorAll('.popup__form-input:nth-of-type(2)');
-=======
-let nameInput = document.querySelector('.popup__form-input:nth-of-type(1)');
-let jobInput = document.querySelector('.popup__form-input:nth-of-type(2)');
+
 // Template
 const contentCards = document.querySelector('.content__cards');
 const contentTemplate = document.querySelector('#template__contents').content;
 const cardTemplate = contentTemplate.querySelector('.content__card').cloneNode(true);
-cardTemplate.querySelector('.content__scenery').src='./images/foto_two.jpg';
+cardTemplate.querySelector('.content__scenery').src='./images/foto_three.jpg';
 cardTemplate.querySelector('.content__scenery').alt='Новинка';
 cardTemplate.querySelector('.content__place').textContent = 'Дюк Корморант';
 
@@ -47,8 +44,6 @@ const initialCards = [
     link: 'images/foto_six.jpg'
   }
 ]; 
-
->>>>>>> feature/template_content
 
 function popupEditProfile() {
   if (popup[0].classList.contains('popup_open')){
