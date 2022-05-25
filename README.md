@@ -1,3 +1,8 @@
+Статистика данного репозитория:
+![Текст](https://img.shields.io/github/commit-activity/m/Feraston/Mesto?style=plastic)
+![Текст](https://img.shields.io/website?style=plastic&url=https%3A%2F%2Fferaston.github.io%2Fmesto%2F)
+
+
 <h1 align="center"><a href="https://feraston.github.io/mesto/">Mesto Russia</a></h1>
 <p align="center"><img src="https://pei.ucoz.net/yp/gory.jpg" width="80%"></p>
 <h2 align="center">Проект посвящен красивым достопримечательностям</h2>
@@ -36,12 +41,6 @@
                  <br> будущее. Пока что сверстан только сам макет сайта и слегка
                  <br> написан первый собственный код на языке Javascript.
                  <br> Первое что в планах, это внести правки, от ревью, а дальше посмотрим</p>
-
-
-Статистика данного репозитория:
-![Текст](https://img.shields.io/github/commit-activity/m/Feraston/Mesto?style=plastic)
-![Текст](https://img.shields.io/website?style=plastic&url=https%3A%2F%2Fferaston.github.io%2Fmesto%2F)
-
 
 <h2 align="center">А пока Проектная работа находиться на проверке, предлагаю представить, как мы движемся на встречу к нашей мечте</h2>
 <p align="center"><img src="https://pei.ucoz.net/yp/rtq.gif" width="60%"></p>
