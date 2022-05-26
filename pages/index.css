@@ -53,6 +53,7 @@
 @import url(../blocks/popup/__form-button/popup__form-button.css);
 
 /* Pop up - zoom */
+@import url(../blocks/popup/_img/popup_img.css);
 @import url(../blocks/popup/__img-zoom/popup__img-zoom.css);
 @import url(../blocks/popup/__zoom-photo/popup__zoom-photo.css);
 @import url(../blocks/popup/__title-img/popup__title-img.css);
