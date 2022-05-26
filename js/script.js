@@ -38,10 +38,10 @@ const titleZoomImg = document.querySelector('.popup__title-img');
 const windowPopupEdit = document.querySelector('#profile-edit');
 const windowPopupAddCard = document.querySelector('#add-card');
 const windowPopupZoomImg = document.querySelector('#img-zoom');
-const nameInput = document.querySelector('#form-name');
-const jobInput = document.querySelector('#form-post');
-const nameCard = document.querySelector('#card-name');
-const linkCard = document.querySelector('#card-link');
+const nameInput = formEdit.querySelector('#form-name');
+const jobInput = formEdit.querySelector('#form-post');
+const nameCard = formAdd.querySelector('#card-name');
+const linkCard = formAdd.querySelector('#card-link');
 const contentTemplate = document.querySelector('#template__contents').content;
 
 function openPopup(window) {
@@ -63,10 +63,6 @@ function formSubmitHandler (evt) {
   nameAvtor.textContent = nameInput.value;
   postAvtor.textContent = jobInput.value;
   closePopup(windowPopupEdit);
-}
-
-if(cardsContainer.innerHTML.trim().length == 0) {
-  renderListCard();
 }
 
 function renderCard(cardTemplate, isPrepend = false) {
@@ -105,18 +101,11 @@ function formAddElement(evt) {
   formAdd.reset();
 }
 
-function popupPhotoZoom(Link, Name) {
-  if (windowPopupZoomImg.classList.contains('popup_open')){
-    closePopup(windowPopupZoomImg);
-    // imgZoom.removeAttribute('src');
-    // imgZoom.removeAttribute('alt');
-    // titleZoomImg.textContent = '';
-  } else {
-    imgZoom.setAttribute('src', Link);
-    imgZoom.setAttribute('alt', Name);
-    titleZoomImg.textContent = Name;
+function popupPhotoZoom(link, name) {
+    imgZoom.setAttribute('src', link);
+    imgZoom.setAttribute('alt', name);
+    titleZoomImg.textContent = name;
     openPopup(windowPopupZoomImg);
-  }
 }
 
 function likeCard(event) {
@@ -128,6 +117,8 @@ function deleteCards(event) {
   const deleteCard = event.target.closest('.content__card');
   deleteCard.remove();
 }
+
+renderListCard();
 
 buttonOpenEdit.addEventListener('click', openEditProfile);
 formEdit.addEventListener('submit', formSubmitHandler);
