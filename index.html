@@ -35,11 +35,13 @@
     <section class="popup popup_edit" aria-label="Редактироване профиля" id="profile-edit">
       <div class="popup__container">
         <button class="popup__button-close" type="button"><img src="images/Close.svg" alt="Закрыть" class="popup__close"></button>
-        <form class="popup__form-edit" name="edit-profile">
+        <form class="popup__form-edit" name="edit-profile" novalidate>
           <fieldset class="popup__label">
           <legend class="popup__form">Редактировать профиль</legend>
-          <input type="text" class="popup__form-input" name="name" placeholder="Имя" value="" id="form-name" required>
-          <input type="text" class="popup__form-input" name="post" placeholder="О себе" value="" id="form-post" required>
+          <input type="text" class="popup__form-input" name="name" placeholder="Имя" value="" id="form-name" minlength="2" maxlength="40" required>
+          <span class="popup__error"></span>
+          <input type="text" class="popup__form-input" name="post" placeholder="О себе" value="" id="form-post" minlength="2" maxlength="200" required>
+          <span class="popup__error"></span>
           <input type="submit" class="popup__form-button" value="Сохранить">
         </fieldset>
         </form>
