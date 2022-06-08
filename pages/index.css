@@ -50,7 +50,11 @@
 @import url(../blocks/popup/__label/popup__label.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__form-input/popup__form-input.css);
+@import url(../blocks/popup/__form-input/_error/popup__form-input_error.css);
+@import url(../blocks/popup/__error/popup__error.css);
+@import url(../blocks/popup/__error/_active/popup__error_active.css);
 @import url(../blocks/popup/__form-button/popup__form-button.css);
+@import url(../blocks/popup/__form-button/_inactive/popup__form-button_inactive.css);
 
 /* Pop up - zoom */
 @import url(../blocks/popup/_img/popup_img.css);
