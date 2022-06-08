@@ -35,14 +35,14 @@
     <section class="popup popup_edit" aria-label="Редактироване профиля" id="profile-edit">
       <div class="popup__container">
         <button class="popup__button-close" type="button"><img src="images/Close.svg" alt="Закрыть" class="popup__close"></button>
-        <form class="popup__form-edit" name="edit-profile" novalidate>
+        <form class="popup__forms popup__form-edit" name="editProfile" novalidate>
           <fieldset class="popup__label">
           <legend class="popup__form">Редактировать профиль</legend>
-          <input type="text" class="popup__form-input" name="name" placeholder="Имя" value="" id="form-name" minlength="2" maxlength="40" required>
-          <span class="popup__error"></span>
-          <input type="text" class="popup__form-input" name="post" placeholder="О себе" value="" id="form-post" minlength="2" maxlength="200" required>
-          <span class="popup__error"></span>
-          <input type="submit" class="popup__form-button" value="Сохранить">
+          <input type="text" class="popup__form-input" name="name" placeholder="Имя" value="не пустое" id="form-name" minlength="2" maxlength="40" required>
+          <span class="popup__error" id="form-name-error"></span>
+          <input type="text" class="popup__form-input" name="post" placeholder="О себе" value="не пустое" id="form-post" minlength="2" maxlength="200" required>
+          <span class="popup__error" id="form-post-error"></span>
+          <button type="submit" class="popup__form-button">Сохранить</button>
         </fieldset>
         </form>
       </div>
@@ -50,14 +50,14 @@
     <section class="popup popup_add" aria-label="Добавить место" id="add-card">
       <div class="popup__container">
         <button class="popup__button-close" type="button"><img src="images/Close.svg" alt="Закрыть" class="popup__close"></button>
-        <form class="popup__form-add" name="add-mesto" novalidate>
+        <form class="popup__forms popup__form-add" name="addMesto" novalidate>
           <fieldset class="popup__label">
           <legend class="popup__form">Новое место</legend>
-          <input type="text" class="popup__form-input" name="name-mesto" placeholder="Название" value="" id="card-name" minlength="2" maxlength="30" required>
-          <span class="popup__error"></span>
-          <input type="url" class="popup__form-input" name="link-mesto" placeholder="Ссылка на картинку" value="" id="card-link" required>
-          <span class="popup__error"></span>
-          <input type="submit" class="popup__form-button" value="Создать">
+          <input type="text" class="popup__form-input" name="nameMesto" placeholder="Название" value="" id="card-name" minlength="2" maxlength="30" required>
+          <span class="popup__error" id="card-name-error"></span>
+          <input type="url" class="popup__form-input" name="linkMesto" placeholder="Ссылка на картинку" value="" id="card-link" required>
+          <span class="popup__error" id="card-link-error"></span>
+          <button type="submit" class="popup__form-button">Создать</button>
         </fieldset>
         </form>
       </div>
@@ -80,5 +80,6 @@
       </li>
     </template> 
     <script src="js/script.js"></script>
+    <script src="js/validate.js"></script>
 </body>
 </html>
