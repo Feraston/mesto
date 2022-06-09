@@ -1,7 +1,7 @@
 // Основная функция включения валидации форм
 const enableValidation = setting => {
-  const settingList = Array.from(document.querySelectorAll(setting.formSelector));
-  settingList.forEach((formElement) => {
+  const formList = Array.from(document.querySelectorAll(setting.formSelector));
+  formList.forEach((formElement) => {
     formElement.addEventListener('submit', evt => evt.preventDefault());
     setEventListeners (formElement, setting);
   });
