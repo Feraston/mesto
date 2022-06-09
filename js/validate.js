@@ -11,16 +11,21 @@ const enableValidation = setting => {
 const setEventListeners = (formElement, setting) => {
   const inputList = Array.from(formElement.querySelectorAll(setting.inputSelector));
   const buttonElement = formElement.querySelector(setting.submitButtonSelector);
-
   toggleButtonState(inputList, buttonElement, setting);
-
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement, setting);
       toggleButtonState(inputList, buttonElement, setting);
     });
   });
+  formElement.addEventListener('reset', () => disableButton(buttonElement, setting));
 };
+
+// Блокировка кнопки при открытии popap_add
+function disableButton(buttonElement, setting) {
+  buttonElement.classList.add(setting.inactiveButtonClass);
+  buttonElement.setAttribute('disabled', true);
+}
 
 // Проверка состояния полей
 const toggleButtonState = (inputList, buttonElement, setting) => {
