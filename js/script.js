@@ -26,7 +26,6 @@ const initialCards = [
 ]; 
 const buttonOpenEdit = document.querySelector('.profile__edit');
 const buttonOpenAdd = document.querySelector('.profile__add');
-const buttonCloseList = document.querySelectorAll('.popup__close');
 const nameAvtor = document.querySelector('.profile__name');
 const postAvtor = document.querySelector('.profile__post');
 const cardsContainer = document.querySelector('.content__cards');
@@ -137,16 +136,10 @@ buttonOpenAdd.addEventListener('click', ()=>{
   openPopup(windowPopupAddCard);
 });
 formAdd.addEventListener('submit', formAddElement);
-// buttonCloseList.forEach((button) => {
-//   button.addEventListener('click', (event)=> {
-//     const exitPopup = event.target.closest('.popup');
-//     closePopup(exitPopup);
-//   });
-// });
 popupList.forEach((popup) => {
   popup.addEventListener('mousedown', (event)=> {
-    if(event.target === event.currentTarget || event.target === document.querySelector('.popup__close')) {
-      closePopup(popup);
+    if(event.target.classList.contains('popup__close') || event.target === event.currentTarget) {
+      closePopup(popup)
     }
   });
 });
