@@ -1,5 +1,6 @@
 import {Cards} from './cards.js';
-import {openPopup, closePopup, dataBlock, initialCards} from './setting.js';
+import {openPopup, closePopup, dataBlock, initialCards, enableValidation} from './setting.js';
+import { FormValidator } from './FormValidator.js';
 
 const buttonOpenEdit = document.querySelector('.profile__edit');
 const buttonOpenAdd = document.querySelector('.profile__add');
@@ -43,6 +44,7 @@ function formAddElement(evt) {
   renderCard(createCard(cardTemplate, true));
   closePopup(windowPopupAddCard);
   formAdd.reset();
+  validationCard.disableButton();
 }
 
 // Добавление карточек
@@ -79,3 +81,9 @@ popupList.forEach((popup) => {
     }
   });
 });
+
+ //Настроить валидацию всех форм
+ const validationProfile = new FormValidator(enableValidation, formEdit);
+ const validationCard = new FormValidator(enableValidation, formAdd);
+ validationProfile.enableValidation();
+ validationCard.enableValidation();

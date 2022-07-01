@@ -36,6 +36,14 @@ export const dataBlock = {
   activeLikeData: 'content__like_active',
   deleteData: '.content__delete'
 }
+export const enableValidation = {
+  formSelector: '.popup__forms',
+  inputSelector: '.popup__form-input',
+  submitButtonSelector: '.popup__form-button',
+  inactiveButtonClass: 'popup__form-button_inactive',
+  inputErrorClass: 'popup__form-input_error',
+  errorClass: 'popup__error_active'
+}
 
 
 // Закрытие esc
