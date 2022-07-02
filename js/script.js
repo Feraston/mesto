@@ -1,4 +1,4 @@
-import {Cards} from './cards.js';
+import {Card} from './card.js';
 import {openPopup, closePopup, dataBlock, initialCards, enableValidation} from './setting.js';
 import { FormValidator } from './FormValidator.js';
 
@@ -49,7 +49,7 @@ function formAddElement(evt) {
 
 // Добавление карточек
 function createCard(cardTemplate) {
-  const cardTemplates = new Cards(cardTemplate, dataBlock).generateCard();
+  const cardTemplates = new Card(cardTemplate, dataBlock).generateCard();
 
   return cardTemplates;
 }
