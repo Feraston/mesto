@@ -1,12 +1,12 @@
 import {Card} from '../components/Card.js';
-import {openPopup, closePopup, dataBlock, initialCards, enableValidation} from './setting.js';
+import {openPopup, closePopup, dataBlock, initialCards, enableValidation, cardsContainer} from '../utils/setting.js';
 import { FormValidator } from '../components/FormValidator.js';
+import Section from '../components/Section.js';
 
 const buttonOpenEdit = document.querySelector('.profile__edit');
 const buttonOpenAdd = document.querySelector('.profile__add');
 const nameAvtor = document.querySelector('.profile__name');
 const postAvtor = document.querySelector('.profile__post');
-const cardsContainer = document.querySelector('.content__cards');
 const popupList = document.querySelectorAll('.popup');
 
 const windowPopupEdit = document.querySelector('#profile-edit');
@@ -41,7 +41,8 @@ function formAddElement(evt) {
     name: nameCard.value,
     link: linkCard.value
   };
-  renderCard(createCard(cardTemplate, true));
+ createCard(cardTemplate);
+
   closePopup(windowPopupAddCard);
   formAdd.reset();
   validationCard.disableButton();
@@ -54,20 +55,6 @@ function createCard(cardTemplate) {
   return cardTemplates;
 }
 
-// Обработка массива с карточками
-initialCards.forEach((cardTemplate) => {
-  renderCard(createCard(cardTemplate));
-});
-
-// Рендер добавленных карточек
-function renderCard(cardTemplate, isPrepend = true) {
-  if(isPrepend) {
-    cardsContainer.prepend(cardTemplate);
-  } else {
-    cardsContainer.append(cardTemplate);
-  }
-}
-
 buttonOpenEdit.addEventListener('click', openEditProfile);
 formEdit.addEventListener('submit', formSubmitHandler);
 buttonOpenAdd.addEventListener('click', ()=>{
@@ -77,7 +64,7 @@ formAdd.addEventListener('submit', formAddElement);
 popupList.forEach((popup) => {
   popup.addEventListener('mousedown', (event)=> {
     if(event.target.classList.contains('popup__close') || event.target === event.currentTarget) {
-      closePopup(popup)
+      closePopup(popup);
     }
   });
 });
@@ -87,3 +74,15 @@ popupList.forEach((popup) => {
  const validationCard = new FormValidator(enableValidation, formAdd);
  validationProfile.enableValidation();
  validationCard.enableValidation();
+
+
+// Добавление карточек из массива
+const сardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const cardTemplates = createCard(item);
+    сardList.addItem(cardTemplates);
+  }
+}, '.content__cards');
+
+сardList.renderItems();

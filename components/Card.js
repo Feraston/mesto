@@ -1,4 +1,4 @@
-import {windowPopupZoomImg, imgZoom, titleZoomImg,openPopup} from './setting.js';
+import {windowPopupZoomImg, imgZoom, titleZoomImg,openPopup} from '../utils/setting.js';
 
 export class Card {
   constructor(card, data) {

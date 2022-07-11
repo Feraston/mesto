@@ -1,6 +1,7 @@
 export const windowPopupZoomImg = document.querySelector('#img-zoom');
 export const imgZoom = document.querySelector('.popup__zoom-photo');
 export const titleZoomImg = document.querySelector('.popup__title-img');
+export const cardsContainer = document.querySelector('.content__cards');
 export const initialCards = [
   {
     name: 'Горная дорога',
