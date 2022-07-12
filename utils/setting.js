@@ -1,7 +1,6 @@
 export const windowPopupZoomImg = document.querySelector('#img-zoom');
 export const imgZoom = document.querySelector('.popup__zoom-photo');
 export const titleZoomImg = document.querySelector('.popup__title-img');
-export const cardsContainer = document.querySelector('.content__cards');
 export const initialCards = [
   {
     name: 'Горная дорога',
@@ -44,25 +43,4 @@ export const enableValidation = {
   inactiveButtonClass: 'popup__form-button_inactive',
   inputErrorClass: 'popup__form-input_error',
   errorClass: 'popup__error_active'
-}
-
-
-// Закрытие esc
-export function exitPopupHandler(evt) {
-  if (evt.key === 'Escape') {
-    const exitPopup = document.querySelector('.popup_open');
-    closePopup(exitPopup);
-};
-};
-
-// Открытие popup
-export function openPopup(window) {
-  window.classList.add('popup_open');
-  document.addEventListener('keydown', exitPopupHandler);
-}
-
-// Закрытие popup
-export function closePopup(window) {
-  window.classList.remove('popup_open');
-  document.removeEventListener('keydown', exitPopupHandler);
 }

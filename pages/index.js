@@ -1,5 +1,5 @@
 import {Card} from '../components/Card.js';
-import {openPopup, closePopup, dataBlock, initialCards, enableValidation, cardsContainer} from '../utils/setting.js';
+import { dataBlock, initialCards, enableValidation} from '../utils/setting.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 
@@ -7,7 +7,6 @@ const buttonOpenEdit = document.querySelector('.profile__edit');
 const buttonOpenAdd = document.querySelector('.profile__add');
 const nameAvtor = document.querySelector('.profile__name');
 const postAvtor = document.querySelector('.profile__post');
-const popupList = document.querySelectorAll('.popup');
 
 const windowPopupEdit = document.querySelector('#profile-edit');
 const windowPopupAddCard = document.querySelector('#add-card');
@@ -61,13 +60,7 @@ buttonOpenAdd.addEventListener('click', ()=>{
   openPopup(windowPopupAddCard);
 });
 formAdd.addEventListener('submit', formAddElement);
-popupList.forEach((popup) => {
-  popup.addEventListener('mousedown', (event)=> {
-    if(event.target.classList.contains('popup__close') || event.target === event.currentTarget) {
-      closePopup(popup);
-    }
-  });
-});
+
 
  //Настроить валидацию всех форм
  const validationProfile = new FormValidator(enableValidation, formEdit);
