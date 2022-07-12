@@ -11,7 +11,7 @@ export default class Popup {
   };
   }
 
-  _setEventListeners() {
+  setEventListeners() {
     // Событие закрытия popup окон
     this._popup.addEventListener('mousedown', (event)=> {
         if(event.target.classList.contains('popup__close') || event.target === event.currentTarget) {
@@ -23,12 +23,12 @@ export default class Popup {
   // Открытие popup
   openPopup () {
     this._popup.classList.add('popup_open');
-    this._popup.addEventListener('keydown', this._closePopup);
+    window.addEventListener('keydown', this._closePopup);
   }
 
   // Закрытие popup
   closePopup () {
     this._popup.classList.remove('popup_open');
-    this._popup.removeEventListener('keydown', this._closePopup);
+    window.removeEventListener('keydown', this._closePopup);
   }
 }

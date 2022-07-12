@@ -1,6 +1,16 @@
 export const windowPopupZoomImg = document.querySelector('#img-zoom');
 export const imgZoom = document.querySelector('.popup__zoom-photo');
 export const titleZoomImg = document.querySelector('.popup__title-img');
+export const nameAvtor = document.querySelector('.profile__name');
+export const postAvtor = document.querySelector('.profile__post');
+export const buttonOpenEdit = document.querySelector('.profile__edit');
+export const buttonOpenAdd = document.querySelector('.profile__add');
+export const formEdit = document.forms.editProfile;
+export const formAdd = document.forms.addMesto;
+export const nameInput = formEdit.name;
+export const jobInput = formEdit.post;
+export const nameCard = formAdd.nameMesto;
+export const linkCard = formAdd.linkMesto;
 export const initialCards = [
   {
     name: 'Горная дорога',

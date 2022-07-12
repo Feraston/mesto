@@ -41,3 +41,27 @@ export function closePopup(window) {
   window.classList.remove('popup_open');
   document.removeEventListener('keydown', exitPopupHandler);
 }
+
+const windowPopupEdit = document.querySelector('#profile-edit');
+const windowPopupAddCard = document.querySelector('#add-card');
+
+// Редактирование профиля -- переписано
+function formSubmitHandler (evt) {
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+  nameAvtor.textContent = nameInput.value;
+  postAvtor.textContent = jobInput.value;
+  popupEdit.closePopup();
+
+  // Форма добавления карточек -- переписано
+function formAddElement(evt) {
+  evt.preventDefault();
+  const cardTemplate = {
+    name: nameCard.value,
+    link: linkCard.value
+  };
+  createCard(cardTemplate);
+
+  formAddPopup.closePopup();
+  validationCard.disableButton();
+}
+}

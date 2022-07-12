@@ -1,4 +1,4 @@
-import {windowPopupZoomImg, imgZoom, titleZoomImg,openPopup} from '../utils/setting.js';
+import {windowPopupZoomImg, imgZoom, titleZoomImg} from '../utils/setting.js';
 
 export class Card {
   constructor(card, data) {
@@ -46,7 +46,7 @@ _setEvetnListeners() {
 // Генерация карточки
 generateCard() {
   this._getTemplate();
-  this._setEvetnListeners();
+  this.setEvetnListeners();
   this._img.src = this._link;
   this._img.alt = this._name;
   this._content.textContent = this._name;
