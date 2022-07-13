@@ -39,6 +39,7 @@ _setEvetnListeners() {
   // Удаление карточек
   this._deleteCard.addEventListener('click',()=>{
     this._card.remove();
+    this._card = null;
   });
 }
 

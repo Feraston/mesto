@@ -7,11 +7,9 @@ export default class UserInfo {
 
   // Принимает данные User
   getUserInfo() {
-    this.userData = {};
-    this.userData.name = this._userName.textContent;
-    this.userData.post = this._userPost.textContent;
-
-    return this.userData;
+    // Комментарий для ревьюера
+    // Упростил, но дописал ключи, без них всплывает ошибка в webpack
+    return {name: this._userName.textContent, post: this._userPost.textContent};
   }
 
   // Возвращает данные User
