@@ -12,8 +12,9 @@ import {
 } from '../utils/setting.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from '../components/Section.js';
-import Popup from '../components/Popup.js'
+import Popup from '../components/Popup.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 
  //Настроить валидацию всех форм
  const validationProfile = new FormValidator(enableValidation, formEdit);
@@ -21,8 +22,6 @@ import PopupWithForm from '../components/PopupWithForm.js';
  validationProfile.enableValidation();
  validationCard.enableValidation();
 
-// Набросок, закончить правки в ветке userinfo
-// Создание объекта с селекторами Profile
 const userEdit = new UserInfo({
   name: nameAvtor,
   post: postAvtor
@@ -30,7 +29,7 @@ const userEdit = new UserInfo({
 
 // Форма редактирования профиля
 const popupEdit = new PopupWithForm('.popup_edit', (data) => {
-  userEdit.setUserInfo(data); // набросок, закончить правки в ветке userinfo
+  userEdit.setUserInfo(data);
   popupEdit.closePopup();
 });
 

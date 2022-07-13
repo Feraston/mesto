@@ -46,7 +46,7 @@ _setEvetnListeners() {
 // Генерация карточки
 generateCard() {
   this._getTemplate();
-  this.setEvetnListeners();
+  this._setEvetnListeners();
   this._img.src = this._link;
   this._img.alt = this._name;
   this._content.textContent = this._name;
