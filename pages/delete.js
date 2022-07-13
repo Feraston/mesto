@@ -65,3 +65,13 @@ function formAddElement(evt) {
   validationCard.disableButton();
 }
 }
+
+export const windowPopupZoomImg = document.querySelector('#img-zoom');
+
+  // Открытие увеличенной картинки
+  this._img.addEventListener('click', () => {
+    imgZoom.setAttribute('src', this._link);
+    imgZoom.setAttribute('alt', this._name);
+    titleZoomImg.textContent = this._name;
+    openPopup(windowPopupZoomImg);
+  });

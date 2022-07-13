@@ -8,7 +8,7 @@ import {
   formEdit, 
   formAdd, 
   nameAvtor, 
-  postAvtor, 
+  postAvtor,
 } from '../utils/setting.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from '../components/Section.js';
@@ -55,6 +55,7 @@ function createCard(cardTemplate) {
 const сardList = new Section({
   items: initialCards,
   renderer: (item) => {
+    console.log(item);
     const cardTemplates = createCard(item);
     сardList.addItem(cardTemplates);
   }

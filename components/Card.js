@@ -1,7 +1,7 @@
 export class Card {
-  constructor(card, data, imgZoom) {
-    this._name = card.name;
-    this._link = card.link;
+  constructor(card, data, handleCardClick) {
+    this._name = card.nameMesto;
+    this._link = card.linkMesto;
     this._templateData = data.templateData;
     this._listcontentData = data.listContentData;
     this._sceneryData = data.sceneryData;
@@ -9,7 +9,7 @@ export class Card {
     this._likeData = data.likeData;
     this._activelikeData = data.activeLikeData;
     this._deleteData = data.deleteData;
-    this._imgZoom = imgZoom;
+    this._handleCardClick = handleCardClick;
   }
 
 // Выводим разметку 
@@ -26,7 +26,7 @@ _getTemplate() {
 _setEvetnListeners() {
   // Открытие увеличенной картинки
   this._img.addEventListener('click', () => {
-    this._imgZoom({
+    this._handleCardClick({
       link: this._link,
       name: this._name,
     })
@@ -49,7 +49,7 @@ generateCard() {
   this._img.src = this._link;
   this._img.alt = this._name;
   this._content.textContent = this._name;
-  
+
   return this._card;
 }
 }

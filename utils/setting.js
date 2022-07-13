@@ -1,4 +1,3 @@
-export const windowPopupZoomImg = document.querySelector('#img-zoom');
 export const imgZoom = document.querySelector('.popup__zoom-photo');
 export const titleZoomImg = document.querySelector('.popup__title-img');
 export const nameAvtor = document.querySelector('.profile__name');
@@ -13,28 +12,28 @@ export const nameCard = formAdd.nameMesto;
 export const linkCard = formAdd.linkMesto;
 export const initialCards = [
   {
-    name: 'Горная дорога',
-    link: 'images/foto_one.jpg',
+    nameMesto: 'Горная дорога',
+    linkMesto: 'images/foto_one.jpg',
   },
   {
-    name: 'Горный мир',
-    link: 'images/foto_two.jpg',
+    nameMesto: 'Горный мир',
+    linkMesto: 'images/foto_two.jpg',
   },
   {
-    name: 'Дом на краю света',
-    link: 'images/foto_three.jpg',
+    nameMesto: 'Дом на краю света',
+    linkMesto: 'images/foto_three.jpg',
   },
   {
-    name: 'Зимний лес',
-    link: 'images/foto_four.jpg',
+    nameMesto: 'Зимний лес',
+    linkMesto: 'images/foto_four.jpg',
   },
   {
-    name: 'Тропа к вечности',
-    link: 'images/foto_five.jpg',
+    nameMesto: 'Тропа к вечности',
+    linkMesto: 'images/foto_five.jpg',
   },
   {
-    name: 'Место силы',
-    link: 'images/foto_six.jpg',
+    nameMesto: 'Место силы',
+    linkMesto: 'images/foto_six.jpg',
   }
 ]; 
 export const dataBlock = {
