@@ -15,6 +15,7 @@ import Section from '../components/Section.js';
 import Popup from '../components/Popup.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
+import PopupWithImage from '../components/PopupWithImage.js';
 
  //Настроить валидацию всех форм
  const validationProfile = new FormValidator(enableValidation, formEdit);
@@ -35,7 +36,7 @@ const popupEdit = new PopupWithForm('.popup_edit', (data) => {
 
 // Попап редактирования профиля
 function openEditProfile() {
-  const userData = userEdit.getUserInfo(); // набросок, закончить правки в ветке userinfo
+  const userData = userEdit.getUserInfo();
 
   popupEdit.setInputsValues(userData);
   popupEdit.openPopup();
@@ -46,7 +47,7 @@ buttonOpenEdit.addEventListener('click', openEditProfile);
 
 // Добавление карточек
 function createCard(cardTemplate) {
-  const cardTemplates = new Card(cardTemplate, dataBlock).generateCard();
+  const cardTemplates = new Card(cardTemplate, dataBlock, imgZoom).generateCard();
   return cardTemplates;
 }
 
@@ -69,8 +70,16 @@ const formAddPopup = new PopupWithForm(".popup_add", (data) => {
 });
 
 formAddPopup.setEventListeners();
-buttonOpenAdd.addEventListener('click', openAddCard);
+buttonOpenAdd.addEventListener('click', () => {formAddPopup.openPopup()});
 
-function openAddCard() {
-  formAddPopup.openPopup();
+const popupZoom = new PopupWithImage(".popup_img");
+
+//Открытие увеличенной картинки
+function imgZoom({ link, name }) {
+  popupZoom.openPopup({
+    name,
+    link,
+  });
 }
+
+popupZoom.setEventListeners();

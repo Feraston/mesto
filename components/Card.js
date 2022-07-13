@@ -1,7 +1,5 @@
-import {windowPopupZoomImg, imgZoom, titleZoomImg} from '../utils/setting.js';
-
 export class Card {
-  constructor(card, data) {
+  constructor(card, data, imgZoom) {
     this._name = card.name;
     this._link = card.link;
     this._templateData = data.templateData;
@@ -11,6 +9,7 @@ export class Card {
     this._likeData = data.likeData;
     this._activelikeData = data.activeLikeData;
     this._deleteData = data.deleteData;
+    this._imgZoom = imgZoom;
   }
 
 // Выводим разметку 
@@ -27,10 +26,10 @@ _getTemplate() {
 _setEvetnListeners() {
   // Открытие увеличенной картинки
   this._img.addEventListener('click', () => {
-    imgZoom.setAttribute('src', this._link);
-    imgZoom.setAttribute('alt', this._name);
-    titleZoomImg.textContent = this._name;
-    openPopup(windowPopupZoomImg);
+    this._imgZoom({
+      link: this._link,
+      name: this._name,
+    })
   });
   // Лайк карточек
   this._likeCard.addEventListener('click', () => {
