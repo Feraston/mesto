@@ -12,7 +12,6 @@ import {
 } from '../utils/setting.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from '../components/Section.js';
-import Popup from '../components/Popup.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
@@ -37,7 +36,6 @@ const popupEdit = new PopupWithForm('.popup_edit', (data) => {
 // Попап редактирования профиля
 function openEditProfile() {
   const userData = userEdit.getUserInfo();
-
   popupEdit.setInputsValues(userData);
   popupEdit.openPopup();
 }
@@ -55,7 +53,6 @@ function createCard(cardTemplate) {
 const сardList = new Section({
   items: initialCards,
   renderer: (item) => {
-    console.log(item);
     const cardTemplates = createCard(item);
     сardList.addItem(cardTemplates);
   }

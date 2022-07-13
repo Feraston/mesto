@@ -31,4 +31,4 @@ export default class Popup {
     this._popup.classList.remove('popup_open');
     window.removeEventListener('keydown', this._closePopup);
   }
-}
+} 
