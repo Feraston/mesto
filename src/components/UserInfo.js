@@ -7,8 +7,6 @@ export default class UserInfo {
 
   // Принимает данные User
   getUserInfo() {
-    // Комментарий для ревьюера
-    // Упростил, но дописал ключи, без них всплывает ошибка в webpack
     return {name: this._userName.textContent, post: this._userPost.textContent};
   }
 
