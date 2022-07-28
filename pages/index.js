@@ -15,6 +15,7 @@ import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
+import Api from '../components/Api.js';
 
  //Настроить валидацию всех форм
  const validationProfile = new FormValidator(enableValidation, formEdit);
@@ -81,3 +82,13 @@ function imgZoom({ link, name }) {
 }
 
 popupZoom.setEventListeners();
+
+const api = new Api({
+  url: 'https://mesto.nomoreparties.co/v1/cohort-46',
+  headers: {
+    authorization: '6058d091-3597-4634-88a3-a31b18eef67f',
+    'Content-Type': 'application/json'
+  }
+});
+
+
