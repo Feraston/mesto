@@ -7,11 +7,7 @@ export default class UserInfo {
 
   // Принимает данные User
   getUserInfo() {
-    this.userData = {};
-    this.userData.name = this._userName.textContent;
-    this.userData.post = this._userPost.textContent;
-
-    return this.userData;
+    return {name: this._userName.textContent, post: this._userPost.textContent};
   }
 
   // Возвращает данные User
