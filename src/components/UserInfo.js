@@ -1,18 +1,19 @@
 export default class UserInfo {
-  constructor({name, post}) {
+  constructor({name, post, avatar}) {
     this._userName = name;
     this._userPost = post;
-    
+    this._avatar = avatar;
   }
 
   // Принимает данные User
   getUserInfo() {
-    return {name: this._userName.textContent, post: this._userPost.textContent};
+    return {name: this._userName.textContent, post: this._userPost.textContent, avatar: this._avatar.src};
   }
 
   // Возвращает данные User
-  setUserInfo(data) {
-    this._userName.textContent = data.name;
-    this._userPost.textContent = data.post;
+  setUserInfo(res) {
+      this._userName.textContent = res.name;
+      this._userPost.textContent = res.about;
+      this._avatar.src = res.avatar;
   }
 }

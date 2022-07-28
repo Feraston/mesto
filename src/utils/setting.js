@@ -2,11 +2,13 @@ export const imgZoom = document.querySelector('.popup__zoom-photo');
 export const titleZoomImg = document.querySelector('.popup__title-img');
 export const nameAvtor = document.querySelector('.profile__name');
 export const postAvtor = document.querySelector('.profile__post');
-export const avatarAvtor = document.querySelector('.profile__content-edit');
+export const avatarAvtor = document.querySelector('.profile__avatar');
 export const buttonOpenEdit = document.querySelector('.profile__edit');
 export const buttonOpenAdd = document.querySelector('.profile__add');
+export const buttonOpenEditAvatar = document.querySelector('.profile__content-edit');
 export const formEdit = document.forms.editProfile;
 export const formAdd = document.forms.addMesto;
+export const formAvatar = document.forms.addAvatar;
 
 import gornayadoroga from '../images/foto_one.jpg';
 import gornyimir from '../images/foto_two.jpg';

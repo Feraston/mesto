@@ -1,3 +1,4 @@
+import Api from '../components/Api.js';
 import "./index.css";
 import {Card} from '../components/Card.js';
 import { 
@@ -5,36 +6,51 @@ import {
   initialCards, 
   enableValidation,
   buttonOpenEdit,
-  buttonOpenAdd, 
+  buttonOpenAdd,
+  buttonOpenEditAvatar,
   formEdit, 
-  formAdd, 
+  formAdd,
+  formAvatar, 
   nameAvtor, 
   postAvtor,
-  avatarAvtor,
+  avatarAvtor
 } from '../utils/setting.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
-import Api from '../components/Api.js';
 
  //Настроить валидацию всех форм
  const validationProfile = new FormValidator(enableValidation, formEdit);
  const validationCard = new FormValidator(enableValidation, formAdd);
+ const validationAvatar = new FormValidator(enableValidation, formAvatar);
+
  validationProfile.enableValidation();
  validationCard.enableValidation();
+ validationAvatar.enableValidation();
 
+  // User profile
 const userEdit = new UserInfo({
   name: nameAvtor,
   post: postAvtor,
   avatar: avatarAvtor
 });
 
-// Форма редактирования профиля
-const popupEdit = new PopupWithForm('.popup_edit', (data) => {
-  userEdit.setUserInfo(data);
-  popupEdit.closePopup();
+const api = new Api({
+  url: 'https://mesto.nomoreparties.co/v1/cohort-46',
+  headers: {
+    authorization: '6058d091-3597-4634-88a3-a31b18eef67f',
+    'Content-Type': 'application/json'
+  }
+})
+
+Promise.all([api.getUserInfo()])
+  .then(([res]) => {
+    userEdit.setUserInfo(res);
+  })
+  .catch((err) => {
+    console.log(`Ошибка: ${err}`);
 });
 
 // Попап редактирования профиля
@@ -44,8 +60,43 @@ function openEditProfile() {
   popupEdit.openPopup();
 }
 
+// Форма редактирования профиля
+const popupEdit = new PopupWithForm('.popup_edit', (data) => {
+  api.setUserInfo(data)
+    .then((data) => {
+      userEdit.setUserInfo(data);
+      popupEdit.closePopup();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
+});
+
 popupEdit.setEventListeners();
 buttonOpenEdit.addEventListener('click', openEditProfile);
+
+// Попап редактирования аватара
+function openEditAvatar() {
+  const userData = userEdit.getUserInfo();
+  popupEditAvatar.setInputsValues(userData);
+  popupEditAvatar.openPopup();
+}
+
+// Форма редактирования аватара
+const popupEditAvatar = new PopupWithForm('.popup_avatar', (data) => {
+  api.setUserAvatar(data)
+    .then((data) => {
+      userEdit.setUserInfo(data);
+      popupEditAvatar.closePopup();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+popupEditAvatar.setEventListeners();
+buttonOpenEditAvatar.addEventListener('click', openEditAvatar);
 
 // Добавление карточек
 function createCard(cardTemplate) {
@@ -85,11 +136,3 @@ function imgZoom({ link, name }) {
 }
 
 popupZoom.setEventListeners();
-
-const api = new Api({
-  url: 'https://mesto.nomoreparties.co/v1/cohort-46',
-  headers: {
-    authorization: '6058d091-3597-4634-88a3-a31b18eef67f',
-    'Content-Type': 'application/json'
-  }
-})

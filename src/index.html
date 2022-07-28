@@ -62,6 +62,19 @@
         </form>
       </div>
     </section>
+    <section class="popup popup_avatar" aria-label="Изменить аватар" id="edit-avatar">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"><img src="<%=require('./images/Close.svg')%>" alt="Закрыть" class="popup__close"></button>
+        <form class="popup__forms popup__edit-avatar" name="addAvatar" novalidate>
+          <fieldset class="popup__label">
+          <legend class="popup__form">Обновить аватар</legend>
+          <input type="url" class="popup__form-input" name="avatar" placeholder="Ссылка на аватар" value="" id="editAvatar" required>
+          <span class="popup__error" id="editAvatar-error"></span>
+          <button type="submit" class="popup__form-button">Сохранить</button>
+        </fieldset>
+        </form>
+      </div>
+    </section>
     <section class="popup popup_img" aria-label="Просмотр фотографии" id="img-zoom">
       <div class="popup__img-zoom">
         <button class="popup__button-close" type="button"><img src="<%=require('./images/Close.svg')%>" alt="Закрыть" class="popup__close"></button>

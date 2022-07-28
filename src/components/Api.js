@@ -13,7 +13,7 @@ export default class Api {
   }
 
 // Запрос пользователя
-  getInfoUser() {
+  getUserInfo() {
     return fetch(`${this._url}/users/me`, {
         headers: this._headers,
         method: 'GET'
@@ -22,13 +22,13 @@ export default class Api {
 }
 
   // Редактирование пользователя
-  setInfoUser(userData) {
+  setUserInfo(userData) {
     return fetch(`${this._url}/users/me`, {
         headers: this._headers,
         method: 'PATCH',
         body: JSON.stringify({
             name: userData.name,
-            about: userData.info
+            about: userData.post
         })
     })
         .then(res => this._check(res))
