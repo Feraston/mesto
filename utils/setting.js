@@ -2,6 +2,7 @@ export const imgZoom = document.querySelector('.popup__zoom-photo');
 export const titleZoomImg = document.querySelector('.popup__title-img');
 export const nameAvtor = document.querySelector('.profile__name');
 export const postAvtor = document.querySelector('.profile__post');
+export const avatarAvtor = document.querySelector('.profile__content-edit');
 export const buttonOpenEdit = document.querySelector('.profile__edit');
 export const buttonOpenAdd = document.querySelector('.profile__add');
 export const formEdit = document.forms.editProfile;

@@ -1,4 +1,5 @@
 .profile__content {
+  position: relative;
   max-width: 486px;
   display: flex;
   gap: 30px;

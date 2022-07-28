@@ -9,6 +9,7 @@ import {
   formAdd, 
   nameAvtor, 
   postAvtor,
+  avatarAvtor,
 } from '../utils/setting.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from '../components/Section.js';
@@ -25,7 +26,8 @@ import Api from '../components/Api.js';
 
 const userEdit = new UserInfo({
   name: nameAvtor,
-  post: postAvtor
+  post: postAvtor,
+  avatar: avatarAvtor
 });
 
 // Форма редактирования профиля
@@ -78,7 +80,7 @@ function imgZoom({ link, name }) {
   popupZoom.openPopup({
     name,
     link,
-  });
+  }); 
 }
 
 popupZoom.setEventListeners();
@@ -89,6 +91,4 @@ const api = new Api({
     authorization: '6058d091-3597-4634-88a3-a31b18eef67f',
     'Content-Type': 'application/json'
   }
-});
-
-
+})
