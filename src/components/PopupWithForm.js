@@ -5,8 +5,8 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, submitForm) {
     super(popupSelector);
     this._submitForm = submitForm;
-    this.popupForm = this._popup.querySelector(".popup__forms");
-    this._inputsList = this.popupForm.querySelectorAll(".popup__form-input");
+    this.popupForm = this._popup.querySelector('.popup__forms');
+    this._inputsList = this.popupForm.querySelectorAll('.popup__form-input');
   }
 
   // Собирает данные полей input
@@ -31,7 +31,7 @@ export default class PopupWithForm extends Popup {
     // Отмена стандартной формы отправки
     this.popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
-
+      this.isLoading(true, "Сохранение...");
       this._submitForm(this._getInputValues());
     });
   }

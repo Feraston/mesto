@@ -9,7 +9,7 @@ import {
   buttonOpenEditAvatar,
   formEdit, 
   formAdd,
-  formAvatar, 
+  formAvatar,
   nameAvtor, 
   postAvtor,
   avatarAvtor
@@ -19,6 +19,8 @@ import Section from '../components/Section.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithDelete from '../components/PopupWithDelete.js';
+
 
  //Настроить валидацию всех форм
  const validationProfile = new FormValidator(enableValidation, formEdit);
@@ -48,6 +50,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([users, cards]) => {
     userEdit.setUserInfo(users);
     сardList.renderItems(cards.reverse());
+    console.log(cards);
   })
   .catch((err) => {
     console.log(`Ошибка: ${err}`);
@@ -69,7 +72,8 @@ const popupEdit = new PopupWithForm('.popup_edit', (data) => {
     })
     .catch((err) => {
       console.log(err);
-    });
+    })
+    .finally(() => popupEdit.isLoading(false));
 });
 
 popupEdit.setEventListeners();
@@ -91,7 +95,8 @@ const popupEditAvatar = new PopupWithForm('.popup_avatar', (data) => {
     })
     .catch((err) => {
       console.log(err);
-    });
+    })
+    .finally(() => popupEditAvatar.isLoading(false));
 });
 
 popupEditAvatar.setEventListeners();
@@ -99,7 +104,7 @@ buttonOpenEditAvatar.addEventListener('click', openEditAvatar);
 
 // Добавление карточек
 function createCard(cardTemplate) {
-  const cardTemplates = new Card(cardTemplate, dataBlock, imgZoom).generateCard();
+  const cardTemplates = new Card(cardTemplate, dataBlock, imgZoom, deleteCard).generateCard();
   return cardTemplates;
 }
 
@@ -113,6 +118,7 @@ const сardList = new Section({
 
 //Форма добавления карточек
 const formAddPopup = new PopupWithForm(".popup_add", (data) => {
+  formAddPopup.isLoading(true, "Создание...");
   api.addCards(data)
     .then((res) => {
       сardList.addItem(createCard(res));
@@ -122,12 +128,13 @@ const formAddPopup = new PopupWithForm(".popup_add", (data) => {
     .catch((err) => {
       console.log(err);
     })
+    .finally(() => formAddPopup.isLoading(false));
 });
 
 formAddPopup.setEventListeners();
 buttonOpenAdd.addEventListener('click', () => {formAddPopup.openPopup()});
 
-const popupZoom = new PopupWithImage(".popup_img");
+const popupZoom = new PopupWithImage('.popup_img');
 
 //Открытие увеличенной картинки
 function imgZoom({ link, name }) {
@@ -138,3 +145,23 @@ function imgZoom({ link, name }) {
 }
 
 popupZoom.setEventListeners();
+
+// Удаление карточек
+function deleteCard (card, idCard) {
+  popupDelete.openPopup(card, idCard);
+}
+
+//Форма удаления карточек
+const popupDelete = new PopupWithDelete(".popup_delete", (card, idCard) => { 
+  api.deleteCard(idCard)
+  .then(() => {
+    card.remove();
+    popupDelete.closePopup();
+  } )
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => popupDelete.isLoading(false));
+});
+
+popupDelete.setEventListeners();

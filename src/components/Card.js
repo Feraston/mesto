@@ -1,10 +1,12 @@
 import { api, userEdit } from './../pages/index.js';
 
 export class Card {
-  constructor(card, data, handleCardClick) {
+  constructor(card, data, handleCardClick, handleCardDelete) {
     this._name = card.name;
     this._link = card.link;
     this._idCard = card._id;
+    this._avtor = card.owner.name;
+    this._avtorId = card.owner._id;
     this._cardLike = card.likes;
     this._templateData = data.templateData;
     this._listcontentData = data.listContentData;
@@ -15,6 +17,7 @@ export class Card {
     this._activelikeData = data.activeLikeData;
     this._deleteData = data.deleteData;
     this._handleCardClick = handleCardClick;
+    this._handleCardDelete = handleCardDelete;
   }
 
 // Выводим разметку 
@@ -26,6 +29,7 @@ _getTemplate() {
   this._likeCard = this._card.querySelector(this._likeData);
   this._numberLike = this._card.querySelector(this._numLike);
   this._deleteCard = this._card.querySelector(this._deleteData);
+
   return contentTemplate;
 }
 
@@ -34,7 +38,7 @@ _setEvetnListeners() {
   this._img.addEventListener('click', () => {
     this._handleCardClick({
       link: this._link,
-      name: this._name,
+      name: `Автор: ${this._avtor}. Описание: ${this._name}`,
     })
   });
 
@@ -61,9 +65,8 @@ _setEvetnListeners() {
   });
 
   // Удаление карточек
-  this._deleteCard.addEventListener('click',()=>{
-    this._card.remove();
-    this._card = null;
+  this._deleteCard.addEventListener('click', ()=>{
+    this._handleCardDelete(this._card, this._idCard);
   });
 }
 
@@ -79,7 +82,6 @@ _checkLikeCard() {
   }
 }
 
-
 // Генерация карточки
 generateCard() {
   this._getTemplate();
@@ -89,7 +91,10 @@ generateCard() {
   this._img.alt = this._name;
   this._content.textContent = this._name;
   this._numberLike.textContent = this._cardLike.length;
-  
+  if (this._avtorId !== userEdit.getUserId()) {
+    this._deleteCard.remove();
+  }
+
   return this._card;
 }
 }

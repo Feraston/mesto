@@ -42,7 +42,7 @@
           <span class="popup__error" id="form-name-error"></span>
           <input type="text" class="popup__form-input" name="post" placeholder="О себе" value="не пустое" id="form-post" minlength="2" maxlength="200" required>
           <span class="popup__error" id="form-post-error"></span>
-          <button type="submit" class="popup__form-button">Сохранить</button>
+          <button type="submit" class="popup__form-button" value="Сохранить">Сохранить</button>
         </fieldset>
         </form>
       </div>
@@ -57,7 +57,7 @@
           <span class="popup__error" id="card-name-error"></span>
           <input type="url" class="popup__form-input" name="link" placeholder="Ссылка на картинку" value="" id="card-link" required>
           <span class="popup__error" id="card-link-error"></span>
-          <button type="submit" class="popup__form-button" disabled>Создать</button>
+          <button type="submit" class="popup__form-button" value="Создать" disabled>Создать</button>
         </fieldset>
         </form>
       </div>
@@ -70,7 +70,7 @@
           <legend class="popup__form">Обновить аватар</legend>
           <input type="url" class="popup__form-input" name="avatar" placeholder="Ссылка на аватар" value="" id="editAvatar" required>
           <span class="popup__error" id="editAvatar-error"></span>
-          <button type="submit" class="popup__form-button">Сохранить</button>
+          <button type="submit" class="popup__form-button" value="Сохранить">Сохранить</button>
         </fieldset>
         </form>
       </div>
@@ -81,7 +81,7 @@
         <form class="popup__forms popup__delete-card" name="deleteCard" novalidate>
           <fieldset class="popup__label">
           <legend class="popup__form">Вы уверены?</legend>
-          <button type="submit" class="popup__form-button">Да</button>
+          <button type="submit" class="popup__form-button popup__button-delete" value="Да">Да</button>
         </fieldset>
         </form>
       </div>
