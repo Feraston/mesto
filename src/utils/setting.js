@@ -9,6 +9,7 @@ export const buttonOpenEditAvatar = document.querySelector('.profile__content-ed
 export const formEdit = document.forms.editProfile;
 export const formAdd = document.forms.addMesto;
 export const formAvatar = document.forms.addAvatar;
+export const formDeleteCard = document.forms.deleteCard;
 
 import gornayadoroga from '../images/foto_one.jpg';
 import gornyimir from '../images/foto_two.jpg';
@@ -49,6 +50,7 @@ export const dataBlock = {
   sceneryData: '.content__scenery',
   placeData: '.content__place',
   likeData: '.content__like',
+  numLike: '.content__like-number',
   activeLikeData: 'content__like_active',
   deleteData: '.content__delete'
 }

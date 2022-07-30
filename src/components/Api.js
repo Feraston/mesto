@@ -45,4 +45,54 @@ export default class Api {
       })
           .then(res => this._check(res))
   }
+  
+    // Запрос карточек
+    getInitialCards() {
+        return fetch(`${this._url}/cards`, {
+            headers: this._headers,
+            method: 'GET'
+        })
+        .then(res => this._check(res))
+    }
+    
+    // Добавление карточек
+    addCards(cardData) {
+        return fetch(`${this._url}/cards`, {
+            headers: this._headers,
+            method: 'POST',
+            body: JSON.stringify({
+                name: cardData.name,
+                link: cardData.link
+            })
+        })
+        .then(res => this._check(res))
+  
+    }
+    
+    // Удаление карточек
+    deleteCard (cardId) {
+        return fetch(`${this._url}/cards/${cardId}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(res => this._check(res))
+    }
+
+    // Поставить лайк
+    putLike(cardId) {
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
+            method: 'PUT',
+            headers: this._headers,
+        })
+            .then(res => this._check(res))
+    }
+
+    // Удалить лайк
+    deleteLike(cardId) {
+        return fetch(`${this._url}/cards/${cardId}/likes`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+            .then(res => this._check(res))
+    }
 }

@@ -53,9 +53,9 @@
         <form class="popup__forms popup__form-add" name="addMesto" novalidate>
           <fieldset class="popup__label">
           <legend class="popup__form">Новое место</legend>
-          <input type="text" class="popup__form-input" name="nameMesto" placeholder="Название" value="" id="card-name" minlength="2" maxlength="30" required>
+          <input type="text" class="popup__form-input" name="name" placeholder="Название" value="" id="card-name" minlength="2" maxlength="30" required>
           <span class="popup__error" id="card-name-error"></span>
-          <input type="url" class="popup__form-input" name="linkMesto" placeholder="Ссылка на картинку" value="" id="card-link" required>
+          <input type="url" class="popup__form-input" name="link" placeholder="Ссылка на картинку" value="" id="card-link" required>
           <span class="popup__error" id="card-link-error"></span>
           <button type="submit" class="popup__form-button" disabled>Создать</button>
         </fieldset>
@@ -75,6 +75,17 @@
         </form>
       </div>
     </section>
+    <section class="popup popup_delete" aria-label="Удалить карточку" id="delete-card">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"><img src="<%=require('./images/Close.svg')%>" alt="Закрыть" class="popup__close"></button>
+        <form class="popup__forms popup__delete-card" name="deleteCard" novalidate>
+          <fieldset class="popup__label">
+          <legend class="popup__form">Вы уверены?</legend>
+          <button type="submit" class="popup__form-button">Да</button>
+        </fieldset>
+        </form>
+      </div>
+    </section>
     <section class="popup popup_img" aria-label="Просмотр фотографии" id="img-zoom">
       <div class="popup__img-zoom">
         <button class="popup__button-close" type="button"><img src="<%=require('./images/Close.svg')%>" alt="Закрыть" class="popup__close"></button>
@@ -87,7 +98,11 @@
         <img class="content__scenery">
         <div class="content__description">
           <h2 class="content__place"></h2>
-          <button class="content__button-like" type="button"><img src="<%=require('./images/like.svg')%>" alt="Лайк" class="content__like"></button>              
+          <div class="content__contain">
+            <button class="content__button-like" type="button"><img src="<%=require('./images/like.svg')%>" alt="Лайк" class="content__like"></button>
+            <p class="content__like-number"></p>
+          </div>
+                       
         </div>
         <button class="content__button-delete" type="button"><img src="<%=require('./images/delete.svg')%>" alt="Удалить" class="content__delete"></button>
       </li>

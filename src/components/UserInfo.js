@@ -10,10 +10,17 @@ export default class UserInfo {
     return {name: this._userName.textContent, post: this._userPost.textContent, avatar: this._avatar.src};
   }
 
+  // Получение id User
+  getUserId() {
+    return this._idUser;
+}
+
   // Возвращает данные User
   setUserInfo(res) {
       this._userName.textContent = res.name;
       this._userPost.textContent = res.about;
       this._avatar.src = res.avatar;
+      this._idUser = res._id;
   }
+
 }

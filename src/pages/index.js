@@ -3,7 +3,6 @@ import "./index.css";
 import {Card} from '../components/Card.js';
 import { 
   dataBlock, 
-  initialCards, 
   enableValidation,
   buttonOpenEdit,
   buttonOpenAdd,
@@ -31,13 +30,13 @@ import PopupWithImage from '../components/PopupWithImage.js';
  validationAvatar.enableValidation();
 
   // User profile
-const userEdit = new UserInfo({
+export const userEdit = new UserInfo({
   name: nameAvtor,
   post: postAvtor,
   avatar: avatarAvtor
 });
 
-const api = new Api({
+export const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-46',
   headers: {
     authorization: '6058d091-3597-4634-88a3-a31b18eef67f',
@@ -45,9 +44,10 @@ const api = new Api({
   }
 })
 
-Promise.all([api.getUserInfo()])
-  .then(([res]) => {
-    userEdit.setUserInfo(res);
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([users, cards]) => {
+    userEdit.setUserInfo(users);
+    сardList.renderItems(cards.reverse());
   })
   .catch((err) => {
     console.log(`Ошибка: ${err}`);
@@ -70,7 +70,6 @@ const popupEdit = new PopupWithForm('.popup_edit', (data) => {
     .catch((err) => {
       console.log(err);
     });
-
 });
 
 popupEdit.setEventListeners();
@@ -106,20 +105,23 @@ function createCard(cardTemplate) {
 
 // Добавление карточек из массива
 const сardList = new Section({
-  items: initialCards,
   renderer: (item) => {
     const cardTemplates = createCard(item);
     сardList.addItem(cardTemplates);
   }
 }, '.content__cards');
 
-сardList.renderItems();
-
 //Форма добавления карточек
 const formAddPopup = new PopupWithForm(".popup_add", (data) => {
-  сardList.addItem(createCard(data));
-  formAddPopup.closePopup();
-  validationCard.disableButton();
+  api.addCards(data)
+    .then((res) => {
+      сardList.addItem(createCard(res));
+      formAddPopup.closePopup();
+      validationCard.disableButton();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 });
 
 formAddPopup.setEventListeners();
