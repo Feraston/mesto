@@ -1,7 +1,6 @@
 export default class Popup {
   constructor(popupSelector) {
-    this._popup = document.querySelector(popupSelector);
-    this._submitBtn = this._popup.querySelector('.popup__form-button');
+    this._popup = popupSelector;
     this._closePopup = this._exitPopupHandler.bind(this);
   }
 
@@ -31,17 +30,5 @@ export default class Popup {
   closePopup () {
     this._popup.classList.remove('popup_open');
     window.removeEventListener('keydown', this._closePopup);
-  }
-
-    
-  isLoading(isLoad, text = 'Подождите...') {
-    if (isLoad) {
-      this._submitBtn.textContent = text;
-      this._submitBtn.disabled = true;
-      this._submitBtn.classList.add('popup__form-button_inactive');
-    } else {
-      this._submitBtn.textContent = this._submitBtn.value;
-      this._submitBtn.classList.remove('popup__form-button_inactive');
-    }
   }
 } 

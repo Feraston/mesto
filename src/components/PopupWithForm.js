@@ -7,6 +7,8 @@ export default class PopupWithForm extends Popup {
     this._submitForm = submitForm;
     this.popupForm = this._popup.querySelector('.popup__forms');
     this._inputsList = this.popupForm.querySelectorAll('.popup__form-input');
+    this._submitBtn = this.popupForm.querySelector('.popup__form-button');
+
   }
 
   // Собирает данные полей input
@@ -40,5 +42,17 @@ export default class PopupWithForm extends Popup {
   closePopup() {
     super.closePopup();
     this.popupForm.reset();
+  }
+
+  isLoading(isLoad, text = 'Подождите...') {
+    if (isLoad) {
+      this._submitBtn.textContent = text;
+      this._submitBtn.disabled = true;
+      this._submitBtn.classList.add('popup__form-button_inactive');
+    } else {
+      this._submitBtn.textContent = this._submitBtn.value;
+      this._submitBtn.disabled = false;
+      this._submitBtn.classList.remove('popup__form-button_inactive');
+    }
   }
 }

@@ -1,48 +1,22 @@
-export const imgZoom = document.querySelector('.popup__zoom-photo');
+export const imgContainer = document.querySelector('.popup_img');
+export const imgZoomCard = document.querySelector('.popup__zoom-photo');
 export const titleZoomImg = document.querySelector('.popup__title-img');
 export const nameAvtor = document.querySelector('.profile__name');
 export const postAvtor = document.querySelector('.profile__post');
 export const avatarAvtor = document.querySelector('.profile__avatar');
+export const popupEditUser = document.querySelector('.popup_edit');
+export const popupAvatar = document.querySelector('.popup_avatar');
+export const popupAddCard = document.querySelector('.popup_add');
+export const popupDeleteCard = document.querySelector('.popup_delete');
+export const contentСontainer = document.querySelector('.content__cards');
 export const buttonOpenEdit = document.querySelector('.profile__edit');
 export const buttonOpenAdd = document.querySelector('.profile__add');
 export const buttonOpenEditAvatar = document.querySelector('.profile__content-edit');
 export const formEdit = document.forms.editProfile;
 export const formAdd = document.forms.addMesto;
 export const formAvatar = document.forms.addAvatar;
+export const formDeleteCard = document.forms.deleteCard;
 
-import gornayadoroga from '../images/foto_one.jpg';
-import gornyimir from '../images/foto_two.jpg';
-import domnakrayu from '../images/foto_three.jpg';
-import zimles from '../images/foto_four.jpg';
-import tropavech from '../images/foto_five.jpg';
-import mestosily from '../images/foto_six.jpg';
-
-export const initialCards = [
-  {
-    nameMesto: 'Горная дорога',
-    linkMesto: gornayadoroga,
-  },
-  {
-    nameMesto: 'Горный мир',
-    linkMesto: gornyimir,
-  },
-  {
-    nameMesto: 'Дом на краю света',
-    linkMesto: domnakrayu,
-  },
-  {
-    nameMesto: 'Зимний лес',
-    linkMesto: zimles,
-  },
-  {
-    nameMesto: 'Тропа к вечности',
-    linkMesto: tropavech,
-  },
-  {
-    nameMesto: 'Место силы',
-    linkMesto: mestosily,
-  }
-]; 
 export const dataBlock = {
   templateData: '#template__contents',
   listContentData: '.content__card',

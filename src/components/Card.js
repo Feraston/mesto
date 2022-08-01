@@ -1,7 +1,7 @@
-import { api, userEdit } from './../pages/index.js';
+import { userEdit } from './../pages/index.js';
 
 export class Card {
-  constructor(card, data, handleCardClick, handleCardDelete) {
+  constructor(card, data, handleCardClick, handleCardLike, handleCardDelete) {
     this._name = card.name;
     this._link = card.link;
     this._idCard = card._id;
@@ -17,6 +17,7 @@ export class Card {
     this._activelikeData = data.activeLikeData;
     this._deleteData = data.deleteData;
     this._handleCardClick = handleCardClick;
+    this._handleCardLike = handleCardLike;
     this._handleCardDelete = handleCardDelete;
   }
 
@@ -44,40 +45,17 @@ _setEvetnListeners() {
 
   // Событие лайка карточек
   this._likeCard.addEventListener('click', () => {
-    if (this._likeCard.classList.contains(this._activelikeData)) {
-      api.deleteLike(this._idCard)
-        .then((like) => {
-          this._handleClickLike(like);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      api.putLike(this._idCard)
-      .then((like) => {
-        this._handleClickLike(like);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    }
-    
+    this._handleCardLike(this._likeCard, this._activelikeData, this._idCard, this._numberLike);
   });
 
   // Удаление карточек
   this._deleteCard.addEventListener('click', ()=>{
-    this._handleCardDelete(this._card, this._idCard);
+  this._handleCardDelete(this._card, this._idCard);
   });
 }
 
-// Лайкнуть/дизлайкнуть карточку
-_handleClickLike (like) {
-  this._likeCard.classList.toggle(this._activelikeData);
-  this._numberLike.textContent = like.likes.length;
-}
-
 _checkLikeCard() {
-  if (this._cardLike.some((like) => {return like._id === userEdit.getUserId()})) {
+  if (this._cardLike.some((like) => like._id === userEdit.getUserId())) {
     this._likeCard.classList.add(this._activelikeData);
   }
 }
@@ -85,8 +63,6 @@ _checkLikeCard() {
 // Генерация карточки
 generateCard() {
   this._getTemplate();
-  this._setEvetnListeners();
-  this._checkLikeCard();
   this._img.src = this._link;
   this._img.alt = this._name;
   this._content.textContent = this._name;
@@ -94,7 +70,8 @@ generateCard() {
   if (this._avtorId !== userEdit.getUserId()) {
     this._deleteCard.remove();
   }
-
+  this._setEvetnListeners();
+  this._checkLikeCard();
   return this._card;
 }
 }

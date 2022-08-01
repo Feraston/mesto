@@ -1,9 +1,7 @@
 import Popup from "./Popup.js";
-import { imgZoom, titleZoomImg} from '../utils/setting.js';
-
 
 export default class PopupWithImage extends Popup {
-  constructor(popupSelector) {
+  constructor(popupSelector, imgZoom, titleZoomImg) {
     super(popupSelector);
     this._imgZoom = imgZoom;
     this._titleZoomImg = titleZoomImg;

@@ -12,7 +12,15 @@ import {
   formAvatar,
   nameAvtor, 
   postAvtor,
-  avatarAvtor
+  avatarAvtor,
+  imgZoomCard,
+  titleZoomImg,
+  popupEditUser,
+  popupAvatar,
+  popupAddCard,
+  popupDeleteCard,
+  contentСontainer,
+  imgContainer
 } from '../utils/setting.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from '../components/Section.js';
@@ -38,7 +46,7 @@ export const userEdit = new UserInfo({
   avatar: avatarAvtor
 });
 
-export const api = new Api({
+const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-46',
   headers: {
     authorization: '6058d091-3597-4634-88a3-a31b18eef67f',
@@ -50,7 +58,6 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([users, cards]) => {
     userEdit.setUserInfo(users);
     сardList.renderItems(cards.reverse());
-    console.log(cards);
   })
   .catch((err) => {
     console.log(`Ошибка: ${err}`);
@@ -64,7 +71,7 @@ function openEditProfile() {
 }
 
 // Форма редактирования профиля
-const popupEdit = new PopupWithForm('.popup_edit', (data) => {
+const popupEdit = new PopupWithForm(popupEditUser, (data) => {
   api.setUserInfo(data)
     .then((data) => {
       userEdit.setUserInfo(data);
@@ -83,11 +90,12 @@ buttonOpenEdit.addEventListener('click', openEditProfile);
 function openEditAvatar() {
   const userData = userEdit.getUserInfo();
   popupEditAvatar.setInputsValues(userData);
+  validationAvatar.disableButton();
   popupEditAvatar.openPopup();
 }
 
 // Форма редактирования аватара
-const popupEditAvatar = new PopupWithForm('.popup_avatar', (data) => {
+const popupEditAvatar = new PopupWithForm(popupAvatar, (data) => {
   api.setUserAvatar(data)
     .then((data) => {
       userEdit.setUserInfo(data);
@@ -104,7 +112,7 @@ buttonOpenEditAvatar.addEventListener('click', openEditAvatar);
 
 // Добавление карточек
 function createCard(cardTemplate) {
-  const cardTemplates = new Card(cardTemplate, dataBlock, imgZoom, deleteCard).generateCard();
+  const cardTemplates = new Card(cardTemplate, dataBlock, imgZoom, likeCard, deleteCard).generateCard();
   return cardTemplates;
 }
 
@@ -114,16 +122,16 @@ const сardList = new Section({
     const cardTemplates = createCard(item);
     сardList.addItem(cardTemplates);
   }
-}, '.content__cards');
+}, contentСontainer);
 
 //Форма добавления карточек
-const formAddPopup = new PopupWithForm(".popup_add", (data) => {
+const formAddPopup = new PopupWithForm(popupAddCard, (data) => {
   formAddPopup.isLoading(true, "Создание...");
   api.addCards(data)
     .then((res) => {
       сardList.addItem(createCard(res));
       formAddPopup.closePopup();
-      validationCard.disableButton();
+
     })
     .catch((err) => {
       console.log(err);
@@ -132,9 +140,12 @@ const formAddPopup = new PopupWithForm(".popup_add", (data) => {
 });
 
 formAddPopup.setEventListeners();
-buttonOpenAdd.addEventListener('click', () => {formAddPopup.openPopup()});
+buttonOpenAdd.addEventListener('click', () => {
+  validationCard.disableButton();
+  formAddPopup.openPopup();
+});
 
-const popupZoom = new PopupWithImage('.popup_img');
+const popupZoom = new PopupWithImage(imgContainer, imgZoomCard, titleZoomImg);
 
 //Открытие увеличенной картинки
 function imgZoom({ link, name }) {
@@ -146,18 +157,44 @@ function imgZoom({ link, name }) {
 
 popupZoom.setEventListeners();
 
+function likeCard (likeCard, activelikeData, idCard, numberLike) {
+  if (likeCard.classList.contains(activelikeData)) {
+    api.deleteLike(idCard)
+      .then((like) => {
+        likeCard.classList.remove(activelikeData);
+        numberLike.textContent = like.likes.length;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  } else {
+    api.putLike(idCard)
+    .then((like) => {
+      likeCard.classList.add(activelikeData);
+      numberLike.textContent = like.likes.length;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+}
+
+
 // Удаление карточек
 function deleteCard (card, idCard) {
   popupDelete.openPopup(card, idCard);
 }
 
 //Форма удаления карточек
-const popupDelete = new PopupWithDelete(".popup_delete", (card, idCard) => { 
+const popupDelete = new PopupWithDelete(popupDeleteCard, (card, idCard) => { 
   api.deleteCard(idCard)
   .then(() => {
     card.remove();
+    card = null;
+  })
+  .then(() => {
     popupDelete.closePopup();
-  } )
+  })
   .catch((err) => {
     console.log(err);
   })
